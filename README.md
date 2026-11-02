@@ -1,8 +1,8 @@
 # Hexalogic Bank Admin
 
-React (Vite) desk for setting up the bank: branches, account types, and staff logins. It does not open accounts, move cash, or decide loans. Those stay in the branch app.
+React (Vite) desk for the bank's setup, plus a read-only view of customers, accounts, and loans. It does not move cash or decide loans. Those stay in the branch app.
 
-Demo data is kept in this browser under `localStorage` key `hexalogic_admin_v1`. It is not shared with the customer app, and it does not write to MySQL.
+Demo data is kept in this browser under `localStorage` key `hexalogic_admin_v2`. It is not shared with the customer app, and it does not write to MySQL.
 
 ## Run it
 
@@ -17,6 +17,6 @@ Open http://localhost:5174
 |-------|----------|
 | `admin` | `admin123` |
 
-The first screen is filled with the Clifton desk from the branch demo: Main, Gulberg, and F-7, plus the seven Main Branch jobs (`teller1` / `teller123` through `manager1` / `manager123`).
+The first screen follows the database seed: Clifton, Saddar, Gulberg, Blue Area, and University Road. Each branch already has its own manager. Clifton staff logins are `teller1` / `teller123` through `manager1` / `manager123`. The other four branch managers are on the staff list without a login until you create one.
 
-A new staff member's login role is taken from their designation. Only a person designated Manager at a branch can be assigned as that branch's manager.
+A staff login's role is taken from the designation. Only a person designated Manager at a branch can be assigned as that branch's manager.

@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Building2, Landmark, LogOut, Menu, Users, X } from 'lucide-react';
+import { Building2, Landmark, LogOut, Menu, ScrollText, UserRound, Users, Wallet, X } from 'lucide-react';
 import { logout } from './store';
 
 const LINKS = [
   { to: '/branches', label: 'Branches', icon: Building2 },
   { to: '/account-types', label: 'Account types', icon: Landmark },
   { to: '/staff', label: 'Staff', icon: Users },
+  { to: '/customers', label: 'Customers', icon: UserRound },
+  { to: '/accounts', label: 'Accounts', icon: Wallet },
+  { to: '/loans', label: 'Loans', icon: ScrollText },
 ];
 
 export default function Layout() {
