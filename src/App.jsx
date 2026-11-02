@@ -1,0 +1,34 @@
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { getData, isAuthed, subscribe } from './store';
+import Layout from './Layout';
+import Login from './pages/Login';
+import Branches from './pages/Branches';
+import AccountTypes from './pages/AccountTypes';
+import Staff from './pages/Staff';
+
+function Guard({ children }) {
+  if (!isAuthed()) return <Navigate to="/login" replace />;
+  return children;
+}
+
+export default function App() {
+  const [, setTick] = useState(0);
+  useEffect(() => subscribe(() => setTick((n) => n + 1)), []);
+  const data = getData();
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={isAuthed() ? <Navigate to="/branches" replace /> : <Login />} />
+        <Route element={<Guard><Layout /></Guard>}>
+          <Route path="/" element={<Navigate to="/branches" replace />} />
+          <Route path="/branches" element={<Branches data={data} />} />
+          <Route path="/account-types" element={<AccountTypes data={data} />} />
+          <Route path="/staff" element={<Staff data={data} />} />
+          <Route path="*" element={<Navigate to="/branches" replace />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
