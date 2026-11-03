@@ -9,6 +9,7 @@ import Staff from './pages/Staff';
 import Customers from './pages/Customers';
 import Accounts from './pages/Accounts';
 import Loans from './pages/Loans';
+import BranchDetails from './pages/BranchDetails';
 
 function Guard({ children }) {
   if (!isAuthed()) return <Navigate to="/login" replace />;
@@ -27,6 +28,7 @@ export default function App() {
         <Route element={<Guard><Layout /></Guard>}>
           <Route path="/" element={<Navigate to="/branches" replace />} />
           <Route path="/branches" element={<Branches data={data} />} />
+          <Route path="/branches/:branchId" element={<BranchDetails data={data} />} />
           <Route path="/account-types" element={<AccountTypes data={data} />} />
           <Route path="/staff" element={<Staff data={data} />} />
           <Route path="/customers" element={<Customers data={data} />} />

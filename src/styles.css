@@ -65,6 +65,16 @@ button { cursor: pointer; }
 .page { max-width: 1080px; margin: 0 auto; }
 .page-header { margin-bottom: 22px; }
 .page-header p { margin-top: 4px; }
+.branch-name-link { color: var(--accent-deep); font-weight: 600; }
+.branch-name-link:hover { text-decoration: underline; }
+.branch-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 0 24px; border: 1px solid var(--line); background: #fff; }
+.branch-metrics div { padding: 14px 18px; border-right: 1px solid var(--line); }
+.branch-metrics div:last-child { border-right: 0; }
+.branch-metrics dt { color: var(--muted); font-size: 0.82rem; }
+.branch-metrics dd { margin: 2px 0 0; font-size: 1.25rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+.branch-section { margin: 0 0 24px; }
+.branch-section h2 { margin: 0 0 10px; }
+.branch-section .card { border-radius: var(--radius-sm); }
 .layout { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); gap: 20px; align-items: start; }
 .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
 .form { display: flex; flex-direction: column; gap: 16px; }
@@ -120,6 +130,9 @@ input:focus, select:focus { outline: none; border-color: var(--accent); box-shad
   .scrim { display: block; position: fixed; inset: 0; z-index: 35; background: rgba(34, 51, 59, 0.45); }
   .main { margin-left: 0; padding: 20px 16px 48px; }
   .layout, .auth { grid-template-columns: 1fr; }
+  .branch-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .branch-metrics div:nth-child(2) { border-right: 0; }
+  .branch-metrics div:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
   .auth-side { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {

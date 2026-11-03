@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { addBranch, assignManager, updateBranch } from '../store';
 
 const EMPTY = { branch_code: '', branch_name: '', city: '' };
@@ -59,7 +60,7 @@ export default function Branches({ data }) {
                 {data.branches.map((b) => (
                   <tr key={b.branch_id}>
                     <td className="mono">{b.branch_code}</td>
-                    <td>{b.branch_name}</td>
+                    <td><Link className="branch-name-link" to={`/branches/${b.branch_id}`}>{b.branch_name}</Link></td>
                     <td>{b.city}</td>
                     <td>
                       <select
@@ -75,6 +76,7 @@ export default function Branches({ data }) {
                       </select>
                     </td>
                     <td>
+                      <Link className="btn btn-ghost btn-sm" to={`/branches/${b.branch_id}`}>Details</Link>
                       <button
                         className="btn btn-ghost btn-sm"
                         type="button"
